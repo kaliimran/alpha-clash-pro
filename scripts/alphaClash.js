@@ -45,9 +45,17 @@ function handleKeyboard(event){
         // step-3: display the update life count
 
         currentLifeElement.innerText = newLife;
+
+        if(currentLife === 0){
+            gameOver()
+
+        }
     }
 }
-document.addEventListener('keyup', handleKeyboard)
+document.addEventListener('keyup', handleKeyboard);
+
+
+
 
 
 // recap
@@ -92,6 +100,17 @@ function continueGame(){
 
 function play(){
     hideElementById('homeScreen');
+    showElementById('playGroundScreen');
+    continueGame()
+};
+
+function gameOver(){
+    hideElementById('playGroundScreen');
+    showElementById('finalScore')
+}
+
+function playAgain(){
+    hideElementById('finalScore');
     showElementById('playGroundScreen');
     continueGame()
 };
